@@ -1,0 +1,26 @@
+{
+    "name": "nextjs-chaching-rendering",
+    "private": true,
+    "type": "module",
+    "workspaces": [
+      "apps/*",
+      "packages/*"
+    ],
+    "scripts": {
+      "check": "biome check --write .",
+      "dev": "turbo dev",
+      "build": "turbo build",
+      "check-types": "turbo check-types",
+      "dev:native": "turbo -F native dev",
+      "dev:web": "turbo -F web dev",
+      "dev:server": "turbo -F server dev"
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "turbo": "^2.5.4",
+      "@biomejs/biome": "2.2.2",
+      "ultracite": "5.3.8"
+    },
+    "packageManager": "bun@1.2.17"
+  }
+  
