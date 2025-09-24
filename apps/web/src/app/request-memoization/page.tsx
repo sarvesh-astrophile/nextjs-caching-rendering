@@ -1,6 +1,7 @@
 import ProductCount from "@/app/components/product-count";
 import TotalPrice from "@/app/components/total-price";
 import { getData } from "@/app/utils/api-helpers";
+import { Product } from "@/app/types/products.types";
 
 export async function generateMetadata() {
     const data = await getData(
@@ -13,7 +14,7 @@ export async function generateMetadata() {
 
     return {
         title: data.reduce(
-            (title: string, product: any) => title + (title && ", ") + product?.title,
+            (title: string, product: Product) => title + (title && ", ") + product?.title,
             ""
         ),
         description: "Apple iPhone 16 products",
@@ -38,7 +39,7 @@ export default async function Page() {
                 <div className="flex flex-col gap-4">
                     <ProductCount />
                     <div className="flex gap-6">
-                        {products.map((product: any) => (
+                        {products.map((product: Product) => (
                             <div
                                 key={product.id}
                                 className="flex rounded gap-6 border-zinc-800 bg-zinc-900 w-4xl h-40 items-center justify-center font-bold text-2xl"
